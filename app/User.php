@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Ad-User Relationship
+     */
+    
+    public function ads(){
+
+        return $this->hasMany('App\Ad');
+
+    }
 }
