@@ -100,7 +100,14 @@ html,body{
 			}
 		}
 	}
-	.tab {
+.label{
+	position:absolute;
+	left:15px;
+	padding:5px;
+	top:10px;
+	background:orange;
+}
+.tab {
   padding-top: 50px;
   margin-bottom: 20px;
   position: relative;

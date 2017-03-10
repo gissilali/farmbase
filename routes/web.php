@@ -15,9 +15,10 @@ Route::get('/', function () {
    if(Auth::check()){
    		return redirect('/home');
    }
-   else
-   		return view('welcome');
-
+   else{
+   		$ads=App\Ad::orderBy('created_at','desc')->paginate(8);
+   		return view('welcome',compact('ads'));
+	}
 });
 
 /**

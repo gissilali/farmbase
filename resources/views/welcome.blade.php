@@ -27,22 +27,38 @@
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="panel item-panel" style="margin-bottom:0;border:1px solid rgba(0,0,0,0.12);overflow:auto">
-                        <div class="panel-heading image-wrap" style="background:url(../ad_images/1_6.jpg);background-size:cover;height:200px;">
-                        </div>
-                        <div class="panel-body" style="padding:10px;margin:0;padding-left:5px;">
-                            <p class="title">Beet root @ 50kes</p>
-                            <p>Kayole, Nairobi</p>
-                        </div>
-                        <div class="panel-footer" style="position:relative;overflow:auto">
-                            <a href="" class="button small view-more">view more</a>
-                            <div class="btn favorite"><i class="fa fa-star"></i></div>
+            @foreach ($ads->chunk(4) as $row)
+                <div class="row">
+                @foreach ($row as $ad) 
+                    <div class="col-md-3 col-sm-6">
+                        <div class="panel item-panel" style="margin-bottom:25px;border:1px solid rgba(0,0,0,0.12);overflow:auto;min-height: 355px;position:relative">
+                            @if ($ad->image_url==NULL)
+                                <div class="panel-heading image-wrap" style="background:#dfdfdf;background-size:cover;height:200px;text-align:center">
+                                <span class="label">KES {{ $ad->price }}</span>
+                                <i class="fa fa-image" style="font-size:24px"></i>
+                                <h4>no image available</h4>
+
+                                </div>
+                            @else
+                                <div class="panel-heading image-wrap" style="background:url({{ '../'.$ad->image_url }});background-size:cover;height:200px;">
+                                <span class="label">KES {{ $ad->price }}</span>
+                                </div>
+                            @endif
+                            <div class="panel-body" style="padding:10px;margin:0;padding-left:5px;">
+                                <p class="title">{{ $ad->title }}</p>
+                                <p class="location">{{ $ad->location }}</p>
+                                
+                            </div>
+                            <div class="panel-footer" style="position:absolute;overflow:auto;bottom:0;width:100%">
+                                <a href="" class="button small view-more">view more</a>
+                                <div class="btn favorite"><i class="fa fa-star"></i></div>
+                            </div>
                         </div>
                     </div>
+                @endforeach
                 </div>
-            </div>
+            @endforeach
+                {{ $ads->links() }}
             </div>
         </div>
     </div>
