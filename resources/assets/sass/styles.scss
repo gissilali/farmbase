@@ -175,3 +175,39 @@ html,body{
 }
 
 }
+
+/**
+ * Login register form styles
+ */
+.login-register{
+
+
+}
+
+.form-input{
+		border: none !important;
+		box-shadow: none !important;
+		height: 50px !important;
+		border-radius: 0 !important;
+		border-bottom: 2px solid black !important;
+		&:active{
+			border-bottom: 2px solid $brand-farmbase !important;
+		}
+		&:focus{
+			border-bottom: 2px solid $brand-farmbase !important;
+		}
+	}
+.form-panel{
+	// border:1px solid rgba($text-color,0.12);
+	 box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.submit-button{
+	border-radius:0 0 4px 4px;
+	background:$brand-farmbase;
+	font-weight:700;
+	color:white;
+	&:hover{
+		color:white;
+		background:darken($brand-farmbase,10%);
+	}
+}
