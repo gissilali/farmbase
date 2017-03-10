@@ -20,4 +20,14 @@ class Ad extends Model
     	return $this->belongsTo('App\User');
 
     }
+
+    /**
+     * Ad Favorite Relationship
+     */
+    
+    public function favorites(){
+
+    	return $this->belongsToMany('App\Ad');
+        
+    }
 }

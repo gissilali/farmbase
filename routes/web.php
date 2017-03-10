@@ -33,8 +33,8 @@ Auth::routes();
 Route::group(['middleware' => 'auth'],function(){
 	Route::get('create_ad','AdController@showCreateAdForm');
 	Route::post('post_ad','AdController@createAd');
-	Route::get('delete/{ad_id}','AdController@deleteAd');
-	Route::get('update_ad/{ad_id}','AdController@showUpdateAdForm');
+	Route::post('delete/{ad_id}','AdController@deleteAd');
+	Route::post('edit/{ad_id}','AdController@showUpdateAdForm');
 	Route::post('update_ad/{ad_id}','AdController@updateAd');
 });
 

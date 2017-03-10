@@ -1,0 +1,170 @@
+//Variables
+@import "variables";
+
+/**
+ * Common Styles
+ */
+html,body{
+	background-color: #fff;
+    color: #636b6f;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+}
+.container-custom{
+	background:$brand-farmbase;
+	height:78vh;
+	margin-top:6vh;
+}
+.brand{
+	&:hover{
+			text-decoration: none;
+		}
+	height:80px;
+	width:auto;
+	img{
+		height:70px;
+		display:inline;
+	}
+	.name{
+		display:inline;
+		font-size:20px;
+		color:$text-color;
+		font-weight: 700;
+		
+	}
+}
+.navbar-right-custom{
+	padding-top:10px;
+	padding-right:50px;
+
+	li{
+		// margin-right:10px;
+		a{
+			font-weight:700;
+			text-transform:uppercase;
+		}
+	}
+}
+/**
+ * Welcome
+ */
+.main-banner{
+	.center-box{
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  color:white;
+	  text-align: center;
+	  .title{
+	  	font-size:36px;
+	  	font-weight:100;
+	  }
+	  .sub-title{
+	  	font-size:24px;
+	  	font-weight:300;
+	  }
+	}
+}
+
+/**
+ * Product grid
+ */
+.grid{
+	.item-panel{
+		
+		
+	}
+	.image-wrap{
+				
+			}
+	.title{
+		font-size:18px;
+		font-weight:700;
+		text-transform:capitalize;
+	}
+.favorite{
+			position:relative;
+			float:right;
+		}
+	.categories-panel{
+		ul{
+			margin:0;
+			padding:0;
+			margin-top:20px;
+			margin-bottom:20px;
+			background:#EFF0F2;
+			border-bottom: 3px solid #98CB64;
+			li{
+				display:inline;
+			}
+		}
+	}
+	.tab {
+  padding-top: 50px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  width: 70%;
+  margin: 0 auto;
+  line-height: 1.5;
+  font-weight: 300;
+  color: #888;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tabs {
+  display: table;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  width: 100%;
+}
+.tabs li {
+  float: left;
+  line-height: 38px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+.tabs a {
+  background-color: #eff0f2;
+  border-bottom: 1px solid #fff;
+  color: #888;
+  font-weight: 500;
+  display: block;
+  letter-spacing: 0;
+  outline: none;
+  padding: 0 20px;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  // border-bottom: 2px solid #98CB64;
+}
+
+.tabs_item {
+  display: none;
+  padding: 30px 0;
+}
+.tabs_item h4 {
+  font-weight: bold;
+  color: #98CB64;
+  font-size: 20px;
+}
+.tabs_item img {
+  width: 200px;
+  float: left;
+  margin-right: 30px;
+}
+.tabs_item:first-child {
+  display: block;
+}
+
+.current a {
+  color: #fff;
+  background: #98CB64;
+}
+
+}

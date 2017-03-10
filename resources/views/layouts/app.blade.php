@@ -9,9 +9,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.svg') }}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/butn.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/font-awesome-4.7.0/css/font-awesome.min.css') }}">
 
     <!-- Scripts -->
     <script>
@@ -19,27 +23,12 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-
-    <script src="{{ asset('js/vue.js') }}"></script>
-    
-    <script>
-        
-           window.onload =function(){
-             new Vue({
-
-            el:'#app',
-            data:{
-                name:"my name",
-            }
-        })
-           }
-        
-    </script>
 </head>
 <body>
     <div id="app">
+        
         <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -51,23 +40,26 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="brand" href="{{ url('/') }}">
+                        <img src="{{ asset('images/logo.svg') }}" alt="">
+                        <p class="name">{{ config('app.name', 'Laravel') }}&trade;</p>
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <li><a href=""></a></li>
+                        <li><a href=""></a></li>
+                        <li><a href=""></a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right navbar-right-custom">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}" class="">Login</a></li>
+                            <li><a href="{{ route('register') }}" class="">Register</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -92,15 +84,13 @@
                     </ul>
                 </div>
             </div>
-            <input type="text" name="" v-model="name">
-        </nav>
+         </nav>
 
         @yield('content')
     </div>
 
     <!-- Scripts -->
     
-    <script src="{{ asset('js/app.js') }}"></script>
-    
+    <script src="{{ asset('js/app.js') }}"></script>     
 </body>
 </html>
