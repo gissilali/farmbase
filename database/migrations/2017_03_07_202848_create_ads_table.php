@@ -18,7 +18,7 @@ class CreateAdsTable extends Migration
             $table->integer('user_id');
             $table->string('title');
             $table->integer('category_id')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->float('price')->nullable();
             $table->boolean('negotiable')->default(false)->nullable();
             $table->string('phone')->nullable();

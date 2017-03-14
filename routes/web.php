@@ -37,9 +37,10 @@ Route::group(['middleware' => 'auth'],function(){
 	Route::post('delete/{ad_id}','AdController@deleteAd');
 	Route::post('edit/{ad_id}','AdController@showUpdateAdForm');
 	Route::post('update_ad/{ad_id}','AdController@updateAd');
+	Route::get('favorite/{ad_id}','FavoriteController@favorite');
 });
 
-Route::get('view_ad/{ad_id}','AdController@showAd');
+Route::get('ad/{ad_id}','AdController@showAd');
 
 /**
  * Admin Routes

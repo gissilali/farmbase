@@ -24,7 +24,6 @@ class AdController extends Controller
 	}
 
     public function createAd(Request $request){
-
     	/*
     		Validate
     	 */
@@ -86,8 +85,12 @@ class AdController extends Controller
     public function showAd($ad_id){
 
     	$ad=Ad::find($ad_id);
+        // dd($ad);
+       
 
-    	return view('view_ad',compact('ad'));
+        $ads=Ad::orderBy('created_at','desc')->paginate(8);
+
+    	return view('view_ad',compact('ad','ads'));
 
     }
 

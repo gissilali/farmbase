@@ -36,6 +36,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Ad');
 
     }
+
+    /**
+     * Ad Favorite Relationship
+     */
+    
+    public function favorites(){
+
+        return $this->belongsToMany('App\Ad','favorites','user_id','ad_id')->withTimestamps();
+        
+    }
     
 
 }

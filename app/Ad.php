@@ -21,13 +21,5 @@ class Ad extends Model
 
     }
 
-    /**
-     * Ad Favorite Relationship
-     */
-    
-    public function favorites(){
 
-    	return $this->belongsToMany('App\Ad');
-        
-    }
 }

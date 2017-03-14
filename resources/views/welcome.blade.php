@@ -14,7 +14,7 @@
             </div>
         </div>
     </section>
-    <div class="grid">
+    <div class="item-grid">
         <div class="container">
             <div class="row">
                 <div class="categories-panel">
@@ -50,8 +50,10 @@
                                 
                             </div>
                             <div class="panel-footer" style="position:absolute;overflow:auto;bottom:0;width:100%">
-                                <a href="" class="button small view-more">view more</a>
-                                <div class="btn favorite"><i class="fa fa-star"></i></div>
+                                <a href="{{ url('ad/'.$ad->id) }}" class="button small view-more">view more</a>
+                                @if (Auth::check())
+                                    <div class="btn favorite"><i class="fa fa-star"></i></div>
+                                @endif
                             </div>
                         </div>
                     </div>
