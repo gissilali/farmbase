@@ -77,7 +77,7 @@ class AdController extends Controller
 
     			}
 			Session::flash('ad_successful','Your Ad has been posted successfully');
-			return redirect('view_ad/'.$ad_id);
+			return redirect('ad/'.$ad_id);
     	}
 		
 	}

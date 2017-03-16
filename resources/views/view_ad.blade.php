@@ -32,10 +32,12 @@
 									<a href="#" class="button">call</a>
 									<a href="#" class="button">message</a>
 								</nav>
-								@if (App\Favorite::whereUserId(1)->whereAdId($ad->id)->first())
-									<a class="btn favorite" href="{{ url('favorite/'.$ad->id) }}"><i class="fa fa-star" style="color:gold"></i></a>
-								@else
-									<a class="btn favorite" href="{{ url('favorite/'.$ad->id) }}"><i class="fa fa-star"></i></a>
+								@if (Auth::check())
+									@if (App\Favorite::whereUserId(Auth::user()->id)->whereAdId($ad->id)->first())
+										<button class="btn favorite" href="{{ $ad->id }}" @click.prevent="sendRequest($event)"><i class="fa fa-star" id="favorite" data-ad-id="{{ $ad->id }}"></i></button>
+									@else
+										<button class="btn favorite" href="{{ $ad->id }}" @click.prevent="sendRequest($event)" id="favorite" data-ad-id="{{ $ad->id }}"><i class="fa fa-star"></i></button>
+									@endif
 								@endif
 							</div>
 						</div>
