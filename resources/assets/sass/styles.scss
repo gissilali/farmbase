@@ -1,251 +1,261 @@
-//Variables
+// Variables
 @import "variables";
 
 /**
- * Common Styles
+ * General styles
  */
-html,body{
-	background-color: #fff;
-    color: #636b6f;
-    font-family: 'Raleway', sans-serif;
-    margin: 0;
-}
-.container-custom{
-	background:$brand-farmbase;
-	height:78vh;
-	margin-top:6vh;
-}
-.brand{
-	&:hover{
-			text-decoration: none;
-		}
-	height:80px;
-	width:auto;
-	img{
-		height:70px;
-		display:inline;
-	}
-	.name{
-		display:inline;
-		font-size:20px;
-		color:$text-color;
-		font-weight: 700;
-		
-	}
-}
-.navbar-right-custom{
-	padding-top:10px;
-	padding-right:50px;
-
-	li{
-		// margin-right:10px;
-		a{
-			font-weight:700;
-			text-transform:uppercase;
-		}
-	}
+body{
+    background:#fff;
 }
 /**
- * Welcome
+ * Header Styles
  */
-.main-banner{
-	.center-box{
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  transform: translate(-50%, -50%);
-	  color:white;
-	  text-align: center;
-	  .title{
-	  	font-size:36px;
-	  	font-weight:100;
-	  }
-	  .sub-title{
-	  	font-size:24px;
-	  	font-weight:300;
-	  }
-	}
+.dropdown-menu{
+    border:1px solid rgba(0,0,0,0.2);
+    box-shadow:none;
+    .dropdown-header{
+        border-bottom:1px solid rgba(0,0,0,0.2);
+        .avatar{
+            height:50px;
+            width:50px;
+            border-radius:50%;
+            background:gold;
+            margin:0 auto;
+            text-align:center;
+            .initials {
+              position: relative;
+              top: 12.5px; /* 25% of parent */
+              font-size:25px; /* 50% of parent */
+              line-height: 25px; /* 50% of parent */
+              color: #fff;
+              font-weight: bold;
+            }
+        }
+        p{
+            text-align:center;
+        }
+    }
 }
-
 /**
- * Product grid
+ * Grid Styles
  */
 .item-grid{
-	.item-panel{
-		
-		
-	}
-	.image-wrap{
-				
-	}
-	.title{
-		font-size:18px;
-		font-weight:700;
-		text-transform:capitalize;
-	}
-	.favorite{
-			position:relative;
-			float:right;
-	}
-	.categories-panel{ 
-		ul{
-			margin:0;
-			padding:0;
-			margin-top:20px;
-			margin-bottom:20px;
-			background:#EFF0F2;
-			border-bottom: 3px solid #98CB64;
-			li{
-				display:inline;
-			}
-		}
-	}
-.label{
-	position:absolute;
-	left:15px;
-	padding:5px;
-	top:10px;
-	background:orange;
-}
-}
+    /**
+     * Tab Styles
+     */
+    .categories-panel{
+        background:#F5F8FA;
+        border-bottom:1px solid rgba(black,0.1);
+        border-top:1px solid rgba(black,0.1);
+        margin-bottom:40px;
+        .tabs{
+            li{
+                display:block;
+                float:left;
+                margin-right:20px;
+                padding:10px 0;
+                a{
+                    text-transform: capitalize;
+                    color:#333;
+                    text-decoration: none;
+                }
+            }
+            .current{
+                border-bottom:1px solid $brand-farmbase;
+                a{
+                    color:$brand-farmbase;
+                }
+            }
+        }
+    }
+    /**
+     * Item Styles
+     */
+    .item{
+        border:1px solid rgba(black,0.1);
+        .panel-heading{
+            margin-bottom:0;
+            position:relative;
+            padding:0;
+        }
+        .panel-body{
+            padding:5px;
+            padding-right:10px;
+        }
+        .title{
+            font-weight:700;
+            // margin:0;
+        }
+        .location,.price,.author{
+            display:inline;
 
+            i{
+                font-size:18px;
+                margin-right:10px;
+            }
+        }
+        .price{
+            float:right;
+        }
+        .category{
+            background:black;
+            position:absolute;
+            left:0;
+            bottom:-1px;
+            padding:10px auto;
+            border-radius:0;
+        }
+        .panel-footer{
+
+        }
+        .favorite{
+            float:right;
+            padding:0;
+            border:none;
+            margin-top:3px;
+        }
+        .no-image{
+           text-align:center;
+           padding-top:40PX;
+            i{
+                font-size:24px;
+            }
+        }
+    }
+}
 /**
- * Form styles
+ * Welcome Page Styles
  */
-.login-register{
-
-
-	}
-
-.form-input{
-		border: none !important;
-		box-shadow: none !important;
-		height: 50px !important;
-		border-radius: 0 !important;
-		border-bottom: 2px solid black !important;
-		&:active{
-			border-bottom: 2px solid $brand-farmbase !important;
-		}
-		&:focus{
-			border-bottom: 2px solid $brand-farmbase !important;
-		}
-	}
-.form-textarea{
-		border: none !important;
-		box-shadow: none !important;
-		border-radius: 0 !important;
-		border-bottom: 2px solid black !important;
-		&:active{
-			border-bottom: 2px solid $brand-farmbase !important;
-		}
-		&:focus{
-			border-bottom: 2px solid $brand-farmbase !important;
-		}
-	}
-.form-panel{
-	// border:1px solid rgba($text-color,0.12);
-	 box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+#welcome{
+    .main-banner{
+        .container-custom{
+            background:url(../images/tractor.svg),$brand-farmbase;
+            background-size:cover;
+            background-repeat: no-repeat;
+            background-position:60vh;
+            height:80vh;
+            margin-top:5vh;
+            margin-bottom:10vh;
+            .center-box{
+                color:white;
+                .cta-get-started{
+                    background:white;
+                    text-transform:capitalize;
+                    color:$brand-farmbase;
+                }
+            }
+        }
+    }
 }
-.submit-button{
-	border-radius:0 0 4px 4px;
-	background:$brand-farmbase;
-	font-weight:700;
-	color:white;
-	&:hover{
-		color:white;
-		background:darken($brand-farmbase,10%);
-	}
-}
-
-.label{
-	position:absolute;
-	left:15px;
-	padding:5px;
-	top:10px;
-	background:orange;
-} 
-.favorite{
-			position:relative;
-			float:right;
-			color:#333;
-			&:hover{
-				color:#333;
-			}
-		}
-	.help-block{
-		color:crimson;
-		font-style: italic;
-	}
 /**
- * Tab styles
+ * Form Styles
  */
-.tab {
-  padding-top: 50px;
-  margin-bottom: 20px;
-  position: relative;
-  overflow: hidden;
-  background: #fff;
-  width: 70%;
-  margin: 0 auto;
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.5;
-  font-weight: 300;
-  color: #888;
-  -webkit-font-smoothing: antialiased;
+#login_registration{
+    .form-panel{
+        box-shadow:none;
+        border:1px solid rgba(0,0,0,0.2);
+        padding:20px;
+    }
+    .panel-heading{
+        text-transform:uppercase;
+    }
+    // .input-group{
+    //  margin-bottom:20px;
+    // }
+    .form-input{
+        border:none;
+        border-bottom:1px solid rgba(0,0,0,0.15);
+        box-shadow:none;
+        height:50px;
+    }
+    .error{
+        color:crimson;
+        font-size:12px;
+        font-weight:700;
+        font-style:italic;
+    }
+    ::placeholder{
+        font-weight:700;
+    }
+    .input-group-addon-custom{
+        background:none;
+        border:none;
+        box-shadow:none;
+        border-bottom:1px solid rgba(0,0,0,0.15);
+        visibility:hidden;
+    }
+    .confirmed{
+        visibility:visible;
+    }
+    .check{
+        border:none;
+        color:$brand-farmbase;
+    }
+    .not-check{
+        border:none;
+        color:$brand-danger;
+    }
+    button[type="submit"]{
+        background:$brand-farmbase;
+        color:white;
+        border:1px solid darken($brand-farmbase,20%)
+    }
 }
+/**
+ * View Item Styles
+ */
+.actions{
+    padding-top:20px;
+    a{
+        display:inline;
+        margin-right:10px;
+        color:white;
+        text-decoration:none;
+    }
+    .call,.message{
+        background:$brand-farmbase;
+        border:1px solid darken($brand-farmbase,7%)
+    }
+}
+.image-wrap{
+    .category{
+        background:$brand-farmbase;
+    }
+    .no-image{
+           text-align:center;
+           padding-top:40px;
+            i{
+                font-size:24px;
+            }
+        }
+}
+.item-info{
+    padding:15px;
+    padding-top:0px;
+    .title{
+        font-size:24px;
+    }
+    .negotiable{
+        background:$brand-farmbase;
+    }
+    .product-description{
+        padding-top:10px;
+    }
+    .favorite{
+            float:right;
+            padding:0;
+            border:none;
+            margin-top:3px;
+        }
+    .author,.location{
+        margin-right:20px;
+    }
+    .location,.price,.author{
+            display:inline;
 
-.tabs {
-  display: table;
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  width: 100%;
-}
-.tabs li {
-  float: left;
-  line-height: 38px;
-  overflow: hidden;
-  padding: 0;
-  position: relative;
-}
-.tabs a {
-  background-color: #eff0f2;
-  border-bottom: 1px solid #fff;
-  color: #888;
-  font-weight: 500;
-  display: block;
-  letter-spacing: 0;
-  outline: none;
-  padding: 0 20px;
-  text-decoration: none;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  border-bottom: 2px solid #87d3b7;
-}
-
-.tabs_item {
-  display: none;
-  padding: 30px 0;
-}
-.tabs_item h4 {
-  font-weight: bold;
-  color: #87d3b7;
-  font-size: 20px;
-}
-.tabs_item img {
-  width: 200px;
-  float: left;
-  margin-right: 30px;
-}
-.tabs_item:first-child {
-  display: block;
-}
-
-.current a {
-  color: #fff;
-  background: #87d3b7;
-}
-.favorited{
-	color:gold;
+            i{
+                font-size:18px;
+                margin-right:10px;
+            }
+        }
 }

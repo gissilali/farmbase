@@ -11199,9 +11199,9 @@ __webpack_require__(32);
 
 Vue.component('example', __webpack_require__(35));
 
-// var app = new Vue({
-//   el: '#app'
-// });
+var app = new Vue({
+  el: '#app'
+});
 
 /***/ }),
 /* 11 */
