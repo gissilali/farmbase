@@ -38,8 +38,10 @@ Route::group(['middleware' => 'auth'],function(){
 	Route::post('edit/{ad_id}','AdController@showUpdateAdForm');
 	Route::post('update_ad/{ad_id}','AdController@updateAd');
 	Route::get('favorite/{ad_id}','FavoriteController@favorite');
+	Route::get('fetchFavorite/{ad_id}','FavoriteController@fetchFavorite');
 });
 
+Route::get('category/farm_produce/{category_id}','FilterAndSortController@fetchFarmProduce'); 
 Route::get('ad/{ad_id}','AdController@showAd');
 
 /**

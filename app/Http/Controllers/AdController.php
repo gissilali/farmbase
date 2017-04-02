@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use App\Ad;
+use App\Favorite;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
 
@@ -86,11 +87,11 @@ class AdController extends Controller
 
     	$ad=Ad::find($ad_id);
         // dd($ad);
-       
+        $categories = Category::all();
 
-        $ads=Ad::orderBy('created_at','desc')->paginate(8);
+        // $ads=Ad::orderBy('created_at','desc')->paginate(8);
 
-    	return view('view_ad',compact('ad','ads'));
+    	return view('view_ad',compact('ad','ads','categories'));
 
     }
 
@@ -99,6 +100,12 @@ class AdController extends Controller
     	$ad = Ad::find($ad_id);
 
     	$ad->delete();
+
+        $favorites = Favorite::whereAdId($ad_id);
+
+        $favorites->delete();
+
+        return back();
 
     }
 
@@ -165,7 +172,7 @@ class AdController extends Controller
 			}
     		
 			Session::flash('ad_successful','Your Ad has been posted successfully');
-			return redirect('view_ad/'.$ad_id);
+			return redirect('ad/'.$ad_id);
 			
     	}
 

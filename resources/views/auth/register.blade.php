@@ -78,7 +78,7 @@
                                 </span>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="button rounded small" :disabled='registrationValidate'>
                                     Register
                                 </button>
                                 <p>Already have an account? <strong><a class="btn btn-link" href="{{ url('login') }}">Login

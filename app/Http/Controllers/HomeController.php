@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Ad;
+use App\Favorite;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $user_ads = Auth::user()->ads()->get();
+        $ads = Ad::orderBy('created_at','desc')->paginate(8);
+        $favorites = Auth::user()->favorites()->get();
+        return view('home',compact('user_ads','ads','favorites'));
+
     }
 }

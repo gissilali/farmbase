@@ -1,12 +1,14 @@
 @extends('layouts.app')
 @section('content')
-	<div class="container">
-		<div class="col-md-8 col-md-offset-2">
-			 <h1 style="text-align: center;font-weight: 700">Create Ad</h1>
-			  <p style="text-align: center;margin-bottom:20px;">Describe your product fully for better results</p>
+	<div class="container" id="create-ad">
+		<div class="col-md-6 col-md-offset-3">
+            <div class="panel">
+            	<div class="panel-heading">
+            		<h1 style="text-align: center;font-weight:400">Create Ad</h1>
+		    		<p style="text-align: center;margin-bottom:20px;">Describe your product</p>
+            	</div>
+				<div class="panel-body form-panel">
 					<form class="form-horizontal" action="{{ url('post_ad') }}" enctype="multipart/form-data" method="POST">
-					<div class="panel form-panel">
-						<div class="panel-body">
 						{{ csrf_field() }}
 						<div class="form-group">
 							<div class="col-md-12">
@@ -15,7 +17,7 @@
 							<div class="col-md-12">
 								<input type="text" name="title" id="title" class="form-control form-input" value="{{ old('title') }}">
 								@if ($errors->has('title'))
-									<p class="help-block">{{ $errors->first('title') }}</p>
+									<p class="help-block error">{{ $errors->first('title') }}</p>
 								@endif
 							</div>
 						</div>
@@ -32,18 +34,18 @@
 									@endforeach
 								</select>
 								@if ($errors->has('category'))
-									<p class="help-block">{{ $errors->first('category') }}</p>
+									<p class="help-block error">{{ $errors->first('category') }}</p>
 								@endif
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-md-12">
-								<label for="description">Description</label>
+								<label for="description" class="form-control-label">Description</label>
 							</div>
 							<div class="col-md-12">
 								<textarea name="description" id="description" cols="30" rows="10" class="form-control form-textarea">{{ old('description') }}</textarea>
 								@if ($errors->has('description'))
-									<p class="help-block">{{ $errors->first('description') }}</p>
+									<p class="help-block error">{{ $errors->first('description') }}</p>
 								@endif
 							</div>
 						</div>
@@ -65,7 +67,7 @@
 								</div>
 								@if ($errors->has('price'))
 									<div class="col-md-12">
-										<p class="help-block">{{ $errors->first('price') }}</p>
+										<p class="help-block error">{{ $errors->first('price') }}</p>
 									</div>
 								@endif
 							</div>
@@ -77,20 +79,20 @@
 							<div class="col-md-12">
 								<input type="file" name="image" id="image">
 								@if ($errors->has('image'))
-									<p class="help-block">{{ $errors->first('image') }}</p>
+									<p class="help-block error">{{ $errors->first('image') }}</p>
 								@endif
 							</div>
 						</div>
 						<div class="form-group">
-							<div class="col-md-12">
-								<label for="phone">Phone</label>
-							</div>
-							<div class="col-md-12">
-								<input type="text" name="phone" id="phone" class="form-control form-input" accept="integer" value="{{ old('phone') }}">
-								@if ($errors->has('phone'))
-									<p class="help-block">{{ $errors->first('phone') }}</p>
-								@endif
-							</div>
+								<div class="col-md-12">
+									<label for="phone">Phone</label>
+								</div>
+								<div class="col-md-12">
+									<input type="text" name="phone" id="phone" class="form-control form-input" accept="integer" value="{{ old('phone') }}">
+									@if ($errors->has('phone'))
+										<p class="help-block error">{{ $errors->first('phone') }}</p>
+									@endif
+								</div>
 						</div>
 						<div class="form-group">
 							<div class="col-md-12">
@@ -99,22 +101,18 @@
 							<div class="col-md-12">
 								<input type="text" name="location" id="location" class="form-control form-input" value="{{ old('location') }}">
 								@if ($errors->has('location'))
-									<p class="help-block">{{ $errors->first('location') }}</p>
+									<p class="help-block error">{{ $errors->first('location') }}</p>
 								@endif
 							</div>
 						</div>
-						</div>
-						<div class="panel-footer clearfix" style="position:relative;padding:0">
-							<div class="col-md-6" style="padding:0">
-									<input name="save_ad" type="submit" value="save ad" class="btn form-control submit-button" style="height: 100%;width:100%;">
-							</div>
-							<div class="col-md-6" style="padding:0">
-									<input name="post_ad" type="submit" value="post ad" class="btn form-control submit-button" style="height: 100%;width:100%;">
+						<div class="form-group">
+							<div class="col-md-12">
+								<input type="submit" value="create ad" class="btn btn-small btn-primary">
 							</div>
 						</div>
-					</div>
 					</form>
-
+				</div>
+            </div>
 		</div>
 	</div>
 @endsection

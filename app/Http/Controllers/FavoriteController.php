@@ -22,4 +22,13 @@ class FavoriteController extends Controller
 
     	return back();
     }
+
+    public function fetchFavorite($ad_id){
+        if(count(Favorite::whereUserId(Auth::user()->id)->whereAdId($ad_id)->get())>0){
+            return "true";
+        }
+        else{
+            return "false";
+        }
+    }
 }

@@ -1,5 +1,4 @@
 
-
   var registration = new Vue({
     el:'#registration_form',
 
@@ -24,7 +23,6 @@
 
       },
       validated:{
-
         email:false,
         password:false,
         password_confirmation:false,
@@ -46,7 +44,6 @@
 
           this.validated.name=true;
           this.error_message.name=""
-
         }
       },
 
@@ -108,6 +105,20 @@
 
       }
     },
+
+      computed:{
+      registrationValidate(){
+        
+        if(this.validated.email==true && this.validated.password==true && this.validated.password_confirmation==true && this.validated.name==true){
+            console.log(this.validated.all);
+            return this.validated.all=false;
+        }
+        else{
+          console.log(this.validated.all);
+          return this.validated.all=true;
+        }
+      }
+    }
   });
 
   var login = new Vue({
@@ -119,6 +130,7 @@
 
         email:false,
         password:false,
+
       },
       error_message:{
 
@@ -127,7 +139,6 @@
 
       },
       validated:{
-
         email:false,
         password:false,
       }
@@ -139,7 +150,8 @@
 
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         
-        if(this.email==''){
+        if(login.email.trim()==0){
+
           this.validated.email=false;
 
           this.error.email=true;
@@ -159,30 +171,88 @@
             this.error_message.email="";
 
             this.validated.email=true;
+
         }
       },
 
       passwordValidate(){
 
-        if(this.password==''){
+        if(this.password==""){
+
           this.error.password=true;
+
           this.error_message.password="Please fill out this field";
+
           this.validated.password=false;
+
         }
-        else if(this.password.trim()>0){
+        else if(this.password.length>0){
+
           this.error.password=false;
+
           this.error_message.password="";
+
           this.validated.password=true;
         }
-        
       },
-
+    },
+    computed:{
       loginValidate(){
-        if(this.validated.email==false && this.validated.password==false){
-          passwordValidate();
-          this.error.password=true;
-          this.error_message.password="Please fill out this field";
+        
+        if(this.validated.email==true && this.validated.password==true){
+            console.log(this.validated.all);
+            return this.validated.all=false;
+        }
+        else{
+          console.log(this.validated.all);
+          return this.validated.all=true;
         }
       }
-    },
-  })
+    }
+  });
+
+  var app = new Vue({
+      el:'#favorite',
+
+      data:{
+          favorite:false
+      },
+
+      created:function(){
+          var my=this;
+          var adId=$('#favorite').attr('data-ad-id');
+          console.log(adId);
+          console.log('John Fuckin Doe');
+          axios.get('/fetchFavorite/'+adId).then(function(response){
+             if(response.data==false){
+                my.favorite=false;
+             }else{
+                my.favorite=true;
+             }
+          });
+
+        },
+
+      methods:{
+
+        like(adId){
+          var my=this;
+          axios.get('/favorite/'+adId).then(function(response){
+             if(response.data==false){
+                my.favorite=false;
+             }else{
+                my.favorite=true;
+             }
+          });
+
+        }
+
+      }
+  });
+
+  var message = new Vue({
+    el:'#message-modal',
+    data:{
+      
+    }
+  });

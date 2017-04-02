@@ -34,11 +34,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
-                    <!-- Branding Image -->
-                        <div class="logo" style="width:50px;height:50px;float:left"><img src="{{ asset('images/logo.svg') }}" alt="" style="width:100%"></div>
-                        <p style="float: left;padding-top:10px;
-  padding-bottom: 10px;">{{ config('app.name', 'Laravel') }}</p>
+                    <a href="{{ url('/') }}" class="clearfix"><div class="logo" style="width:50px;height:50px;float:left"><img src="{{ asset('images/logo.svg') }}" alt="" style="width:100%"></div></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -95,7 +91,6 @@
                 </div>
             </div>
         </nav>
-
         @yield('content')
     </div>
 
